@@ -1,0 +1,1 @@
+python train.py --cfg configs/models/regression_model.yaml

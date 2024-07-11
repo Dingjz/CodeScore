@@ -1,0 +1,44 @@
+unified_metric:
+  class_path: models.UnifiedMetric_exec
+  # class_path: models.UnifiedMetric
+  init_args:
+    nr_frozen_epochs: 0
+    keep_embeddings_frozen: True
+    optimizer: AdamW
+    encoder_learning_rate: 5.0e-06
+    learning_rate: 3.1e-05
+    layerwise_decay: 0.95
+    encoder_model: BERT
+    pretrained_model: microsoft/unixcoder-base
+    sent_layer: mix
+    layer_transformation: sparsemax
+    word_layer: 12
+    loss: mse
+    dropout: 0.1
+    final_activation: Sigmoid
+    batch_size: 7
+    # batch_size: 18
+    train_data:
+      - /home/dingjiazheng/projects/COMET-master/data.apps/train.jsonl
+
+    validation_data: 
+      - /home/dingjiazheng/projects/COMET-master/data.apps/dev.jsonl
+
+    hidden_sizes:
+      - 3072
+      - 1024
+    activations: Tanh
+    input_segments:
+      - mt
+      # - src
+      - ref
+      # - src_ref
+    word_weights:
+      - 0.15     # OK weight
+      - 0.85     # BAD weight
+    word_level_training: True
+    loss_lambda: 0.65 # word-level weight loss
+    
+trainer: ../trainer.yaml
+early_stopping: ../early_stopping.yaml
+model_checkpoint: ../model_checkpoint.yaml

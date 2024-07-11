@@ -1,0 +1,5 @@
+pytorch_lightning
+torchmetrics
+jsonargparse
+transformers
+torch

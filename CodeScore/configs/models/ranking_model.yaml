@@ -1,0 +1,23 @@
+ranking_metric:
+  class_path: comet.models.RankingMetric
+  init_args:
+    nr_frozen_epochs: 0.3
+    keep_embeddings_frozen: True
+    optimizer: AdamW
+    encoder_learning_rate: 5.0e-06
+    learning_rate: 1.5e-05
+    layerwise_decay: 0.95
+    encoder_model: XLM-RoBERTa
+    pretrained_model: xlm-roberta-base
+    pool: avg
+    layer: mix
+    dropout: 0.1
+    batch_size: 4
+    train_data: 
+      - data/2017-daRR.csv
+    validation_data:
+      - data/2019-daRR.dev.csv
+      
+trainer: ../trainer.yaml
+early_stopping: ../early_stopping.yaml
+model_checkpoint: ../model_checkpoint.yaml
