@@ -21,6 +21,23 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Input and Output
+
+#### Input Formats
+We format the input sequences as:
+```
+[CLS] generated_code [SEP] reference_code [SEP] natural_language [SEP]
+```
+where `[CLS]` and `[SEP]` are special tokens in the vocabulary. The `generated_code`, `reference_code`, and `natural_language` are placeholders for the generated code, reference code, and natural language description, respectively.
+
+For training and testing datasets, you can refer to our open-source datasets for organization formats.
+
+#### Outputs
+The outputs include three keys:
+1. `scores`: Represents the CodeScore value.
+2. `passeds`: Indicates whether the generated code compiled successfully.
+3. `pass_at_1s`: Represents the Pass@1 value.
+
 ### Inference
 
 To perform inference using CodeScore, run:
