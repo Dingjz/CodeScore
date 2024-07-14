@@ -1,4 +1,3 @@
-
 # CodeScore: Evaluating Code Generation by Learning Code Execution
 
 CodeScore is a novel code evaluation metric (CEM) designed to assess the functional correctness of generated code using a large language model (LLM)-based approach. It overcomes the limitations of traditional match-based CEMs by focusing on the functional equivalence of code and supporting multiple input formats.
@@ -33,10 +32,9 @@ where `[CLS]` and `[SEP]` are special tokens in the vocabulary. The `generated_c
 For training and testing datasets, you can refer to our open-source datasets for organization formats.
 
 #### Outputs
-The outputs include three keys:
+The outputs include two keys:
 1. `scores`: Represents the CodeScore value.
 2. `passeds`: Indicates whether the generated code compiled successfully.
-3. `pass_at_1s`: Represents the Pass@1 value.
 
 ### Inference
 
@@ -60,10 +58,6 @@ python train.py --cfg configs/models/unified_metric.yaml
 - `--ckpt_path`: Path to the model checkpoint.
 - `--test_file`: Path to the test file.
 - `--out_file`: Path to save the results.
-
-## Datasets
-
-For datasets, you can check [CodeScore on Hugging Face](https://huggingface.co/datasets/dz1/CodeScore).
 
 ## Checkpoints
 
